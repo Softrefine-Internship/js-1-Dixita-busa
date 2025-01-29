@@ -11,3 +11,28 @@ Given an integer array flowerbed containing 0's and 1's, where 0 means empty and
 // Example 2:
 // Input: flowerbed = [1,0,0,0,1], n = 2
 // Output: false
+
+"use strict";
+function adjacentFlowers(flowerbed, n) {
+  let plant = 0;
+
+  for (let i = 0; i < flowerbed.length; i++) {
+    if (
+      flowerbed[i] === 0 &&
+      (i === 0 || flowerbed[i - 1] === 0) &&
+      (i === flowerbed.length - 1 || flowerbed[i + 1] === 0)
+    ) {
+      flowerbed[i] = 1;
+      plant++;
+    }
+    if (plant >= n) return true;
+  }
+
+  return false;
+}
+
+const flowerbed1 = [1, 0, 0, 0, 1];
+console.log(adjacentFlowers(flowerbed1, 1));
+
+const flowerbed2 = [1, 0, 0, 0, 1];
+console.log(adjacentFlowers(flowerbed2, 2));

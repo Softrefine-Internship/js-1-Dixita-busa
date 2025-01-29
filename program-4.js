@@ -5,3 +5,28 @@
 // arr2 = [4, 2]
 
 // Expected output: [1, 2, 3, 4, 5]
+
+"use strict";
+const sortedArray = function (arr) {
+  for (let i = 1; i < arr.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (arr[j] > arr[i]) {
+        let temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  console.log(arr);
+};
+
+function mergeSortArray(arr1, arr2) {
+  for (let i = 0; i < arr2.length; i++) {
+    arr1.push(arr2[i]);
+  }
+  sortedArray(arr1);
+}
+
+const arr1 = [3, 5, 1];
+const arr2 = [4, 2];
+mergeSortArray(arr1, arr2);

@@ -1,4 +1,4 @@
-// Write a JavaScript function to find the difference between two arrays.
+// Write a JavaScript function to find the arrayDifferenceerence between two arrays.
 
 // Sample Input:
 // arr1 = [1, 2, 3]
@@ -35,6 +35,22 @@ const arrayDifference = function (arr1, arr2) {
   return resultArray;
 };
 
+function mostFrequentItem(arr) {
+  let count = {};
+  let maxCount = 0;
+  let mostFrequent;
+  for (let i = 0; i < arr.length; i++) {
+    let item = arr[i];
+    count[item] = (count[item] || 0) + 1;
+    if (count[item] > maxCount) {
+      maxCount = count[item];
+      mostFrequent = item;
+    }
+  }
+  console.log(mostFrequent, `"${maxCount} times"`);
+}
+
 const arr1 = [1, 2, 3];
-const arr2 = [100, 2, 1, 10];
+const arr2 = [100, 2, 1, 10, 1];
 console.log(arrayDifference(arr1, arr2)); 
+mostFrequentItem(arr2);
